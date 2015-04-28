@@ -1,0 +1,45 @@
+states_101:
+    name: Eastern Cape
+    country_id: "187"
+    id: "101"
+    abbr: EC
+states_102:
+    name: Free State
+    country_id: "187"
+    id: "102"
+    abbr: FS
+states_103:
+    name: Gauteng
+    country_id: "187"
+    id: "103"
+    abbr: GT
+states_104:
+    name: Kwazulu-Natal
+    country_id: "187"
+    id: "104"
+    abbr: NL
+states_105:
+    name: Limpopo
+    country_id: "187"
+    id: "105"
+    abbr: LP
+states_106:
+    name: Mpumalanga
+    country_id: "187"
+    id: "106"
+    abbr: MP
+states_107:
+    name: Northern Cape
+    country_id: "187"
+    id: "107"
+    abbr: NC
+states_108:
+    name: North West
+    country_id: "187"
+    id: "108"
+    abbr: NW
+states_109:
+    name: Western Cape
+    country_id: "187"
+    id: "109"
+    abbr: WC
