@@ -47,7 +47,7 @@ $counter = 0;
 $exceptions = 0;
 
 $output = [
-    [ 'postcode', 'name', 'state', 'latitude', 'longitude', 'source' ],
+    [ 'postcode', 'name', 'state_id', 'latitude', 'longitude', 'source' ],
 ];
 
 foreach ($postalCodes as &$postalCode) {
