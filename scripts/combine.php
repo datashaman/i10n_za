@@ -34,6 +34,7 @@ function csv_to_array($filename='', $delimiter=',')
 	return $data;
 }
 
+$ranges = csv_to_array('ranges.csv');
 $geoCodes = csv_to_array('postal-geo.csv');
 $postalCodes = csv_to_array('postal-text.csv');
 
@@ -66,11 +67,23 @@ foreach ($postalCodes as &$postalCode) {
         $exceptions++;
     }
 
+    $postalCode['state_id'] = '';
+
+    foreach($ranges as $range) {
+        if ($postalCode['STR-CODE'] >= $range['from']
+            && $postalCode['STR-CODE'] <= $range['to']
+            || $postalCode['BOX-CODE'] >= $range['from']
+            && $postalCode['BOX-CODE'] <= $range['to']) {
+            $postalCode['state_id'] = $range['state_id'];
+            break;
+        }
+    }
+
     if (!empty($postalCode['STR-CODE'])) {
         $output[] = [
             $postalCode['STR-CODE'],
             $postalCode['SUBURB'],
-            '',
+            $postalCode['state_id'],
             $postalCode['LAT'],
             $postalCode['LONG'],
             json_encode($postalCode),
@@ -81,7 +94,7 @@ foreach ($postalCodes as &$postalCode) {
         $output[] = [
             $postalCode['BOX-CODE'],
             $postalCode['SUBURB'],
-            '',
+            $postalCode['state_id'],
             $postalCode['LAT'],
             $postalCode['LONG'],
             json_encode($postalCode),
